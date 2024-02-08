@@ -35,7 +35,7 @@ const SingleProduct = () => {
 
     if (!data) return
 
-    const product = data.data[0].attributes
+    const product = data.data.attributes
 
     return (
         <div className="single-product-main-content">
