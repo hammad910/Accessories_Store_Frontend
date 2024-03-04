@@ -12,13 +12,14 @@ const Home = () => {
     useEffect(() => {
         getCategories()
         getProducts()
+        // console.log(categories);
     }, [])
-
     const getCategories = () => {
         fetchDataFromApi('/api/categories?populate=*').then((res) => {
             setCategories(res)
         })
     };
+
     const getProducts = () => {
         fetchDataFromApi('/api/products?populate=*').then((res) => {
             setProducts(res)
