@@ -12,12 +12,15 @@ import {
     FaCartPlus,
 } from "react-icons/fa";
 import "./SingleProduct.scss";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 const SingleProduct = () => {
     const { handleAddToCart } = useContext(Context)
     const { id } = useParams();
     const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`)
     const [quantity, setQuantity] = useState(1)
+    useEffect(() => {
+        console.log(id);
+    })
 
     const increment = () => {
         setQuantity((nextState) => nextState + 1)
@@ -33,16 +36,18 @@ const SingleProduct = () => {
     }
 
 
+    console.log(data);
     if (!data) return
-
-    const product = data.data.attributes
+    const product = data.data[0].attributes;
 
     return (
+        <>
         <div className="single-product-main-content">
             <div className="layout">
                 <div className="single-product-page">
                     <div className="left">
                         <img src={process.env.REACT_APP_DEV_URL + product.images.data[0].attributes.url} alt='' />
+                        {/* <img src={process.env.REACT_APP_DEV_URL + product.images.data[0].attributes.url} alt='' /> */}
                     </div>
                     <div className="right">
                         <span className="name">{product.name}</span>
@@ -97,6 +102,7 @@ const SingleProduct = () => {
                 />
             </div>
         </div>
+    </>
     )
 };
 

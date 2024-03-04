@@ -64,7 +64,7 @@ const Header = () => {
                             </MenuButton>
                             <MenuList>
                                 {categories?.data?.map((item) => (
-                                    <MenuItem minH='48px' onClick={() => navigate(`/category/${item.id}`)}>
+                                    <MenuItem minH='48px'key={item.id}  onClick={() => navigate(`/category/${item.id}`)}>
                                         <Text color='black'>{item.attributes.title}</Text>
                                     </MenuItem>
                                 ))}

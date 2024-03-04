@@ -9,7 +9,7 @@ const Category = ({ categories }) => {
                 <div className="sec-heading">Category</div>
                     <div className="categories">
                         {categories?.data?.map((item) => (
-                                <div className="category" onClick={() => navigate(`/category/${item.id}`)}>
+                                <div className="category" key={item.id} onClick={() => navigate(`/category/${item.id}`)}>
                                     <video autoPlay muted loop >
                                         <source src={process.env.REACT_APP_DEV_URL + item.attributes.img.data.attributes.url} type="video/mp4" />
                                     </video>

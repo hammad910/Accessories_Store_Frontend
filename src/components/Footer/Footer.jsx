@@ -76,13 +76,13 @@ const Footer = () => {
                 <div className="col">
                     <div className="title">Categories</div>
                     {Categories.map((item) => (
-                    <span className="text">{item.name}</span>
+                    <span className="text" key={item.name}>{item.name}</span>
                     ))}
                 </div>
                 <div className="col">
                     <div className="title">Pages</div>
                     {Pages.map((item) => (
-                    <span className="text">{item.name}</span>
+                    <span className="text" key={item.name}>{item.name}</span>
                     ))}
                 </div>
             </div>
